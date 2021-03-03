@@ -2,4 +2,22 @@
 
 {% block content %}
 
+<div class="card text-center">
+    <div class="card-header">
+      Featured
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"> THREE easy steps </h5>
+      <p class="card-text">
+          <ul class="list-unstyled">
+            {% for key, value in addentry.items() %}
+             <li> {{key}} - {{value}}</li>
+            {% endfor %}
+          </ul>
+      </p>
+    </div>
+    <div class="card-footer text-muted">
+    </div>
+  </div>
+
 {% endblock content %}

@@ -5,8 +5,15 @@ from app.forms import UserInfoForm
 @app.route('/')
 @app.route('/index')
 def index():
-    title = "Phonebook | HOME "
-    return render_template('index.html', title = title)
+    context={
+        'title': 'Phonebook | HOME',
+        'addentry': {
+            1: 'Create an account with us',
+            2: 'Add your phone to our virtual phonebook',
+            3: 'We will make sure you will NOT be contacted by telemarketers, spammers, scammers etc.'
+        }
+    }
+    return render_template('index.html', **context)
 
 @app.route('/registerphone', methods =['GET', 'POST'])
 def register():
@@ -24,9 +31,10 @@ def register():
 def phonebook():
     context={
         'title': 'Phonebook | Phonebook',
-        'add entry': {
-            1: ''
+        'addentry': {
+            1: 'Create an account with us',
+            2: 'Add your phone to our virtual phonebook',
+            3: 'We will make sure you will NOT be contacted by telemarketers, spammers, scammers etc.'
         }
     }
-    
     return render_template('phonebook.html', **context)
