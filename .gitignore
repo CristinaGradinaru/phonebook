@@ -1,0 +1,4 @@
+phonebook_venv/
+.vscode/
+.gitignore/
+.env/
