@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, ValidationError
+from wtforms import StringField, PasswordField, SubmitField, ValidationError, BooleanField
 from wtforms.validators import DataRequired, EqualTo, Email
 import phonenumbers
 
@@ -24,3 +24,8 @@ class UserInfoForm(FlaskForm):
             if not (phonenumbers.is_valid_number(input_number)):
                 raise ValidationError('Invalid phone number.')
 
+class LoginForm(FlaskForm):
+   username= StringField('Username', validators=[DataRequired()])
+   password = PasswordField('Password', validators = [DataRequired()])
+   remember_me = BooleanField('Remember me')
+   submit = SubmitField()
